@@ -2,6 +2,7 @@ package ListNode;
 
 /**
  * 扁平化多级双向链表
+ * todo: 未完成
  */
 public class Flatten {
     class Node {
