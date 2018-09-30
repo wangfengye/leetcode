@@ -27,7 +27,7 @@ public class ListNode {
     }
     public static boolean isSame(ListNode a,ListNode b){
         if (a==null&&b==null)return true;
-        if (a!=null&&b!=null&&a.equals(b))return true;
+        if (a!=null&&a.equals(b))return true;
         return false;
     }
 
