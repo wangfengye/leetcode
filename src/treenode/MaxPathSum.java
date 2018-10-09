@@ -9,6 +9,7 @@ public class MaxPathSum {
     /**
      * 分析: 结果必然 从某个根节点的左右两分支的和;
      * 即比较从各个根节点触发,左右两侧的最大路径,与两侧路径和比较,求最大值
+     *
      * @param root
      * @return
      */
@@ -26,11 +27,12 @@ public class MaxPathSum {
         if (max < subMax) max = subMax;
         return Math.max(maxS, node.val);
     }
-    private int subMax1(TreeNode node){
-        if (node ==null)return 0;
-        int left = Math.max(0,subMax1(node.left));
-        int right = Math.max(0,subMax1(node.right));
-        max = Math.max(max,left+right+node.val);
-        return Math.max(left,right)+ node.val;
+
+    private int subMax1(TreeNode node) {
+        if (node == null) return 0;
+        int left = Math.max(0, subMax1(node.left));
+        int right = Math.max(0, subMax1(node.right));
+        max = Math.max(max, left + right + node.val);
+        return Math.max(left, right) + node.val;
     }
 }
