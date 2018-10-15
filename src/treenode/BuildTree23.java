@@ -25,7 +25,6 @@ public class BuildTree23 {
         }
         if (i - 1 >= start) {
             root.left = buildTreeStep(inorder, postorder, start, i-1);
-            index--;
         }
         return root;
     }
