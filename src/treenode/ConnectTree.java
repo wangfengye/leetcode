@@ -2,6 +2,7 @@ package treenode;
 
 /**
  * 每个节点的右向指针
+ * 它是一个完美二叉树
  */
 public class ConnectTree {
     public void connect(TreeNode root) {
