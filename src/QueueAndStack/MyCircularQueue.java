@@ -1,0 +1,71 @@
+package QueueAndStack;
+
+public class MyCircularQueue {
+    private int[] queue;
+    int len;
+    int head;
+    int tail;
+
+    /**
+     * Initialize your data structure here. Set the size of the queue to be k.
+     */
+    public MyCircularQueue(int k) {
+        queue = new int[k];
+        len = 0;
+        head = 0;
+
+        tail = -1;
+    }
+
+    /**
+     * Insert an element into the circular queue. Return true if the operation is successful.
+     */
+    public boolean enQueue(int value) {
+        if (isFull()) return false;
+        tail = (++tail) % queue.length;
+        queue[tail] = value;
+        len++;
+        return true;
+    }
+
+    /**
+     * Delete an element from the circular queue. Return true if the operation is successful.
+     */
+    public boolean deQueue() {
+        if (isEmpty()) return false;
+        head = (++head) % queue.length;
+        len--;
+        return true;
+    }
+
+    /**
+     * Get the front item from the queue.
+     */
+    public int Front() {
+        if (isEmpty()) return -1;
+        return queue[head];
+    }
+
+    /**
+     * Get the last item from the queue.
+     */
+    public int Rear() {
+        if (isEmpty()) return -1;
+        return queue[tail];
+    }
+
+    /**
+     * Checks whether the circular queue is empty or not.
+     */
+    public boolean isEmpty() {
+        return len == 0;
+    }
+
+    /**
+     * Checks whether the circular queue is full or not..
+     */
+    public boolean isFull() {
+        return len == queue.length;
+    }
+
+}
