@@ -1,8 +1,10 @@
 package ListNode;
 
+import java.util.Stack;
+
 /**
  * 扁平化多级双向链表
- * todo: 未完成
+ *
  */
 public class Flatten {
     class Node {
@@ -23,27 +25,21 @@ public class Flatten {
     }
 
     public Node flatten(Node head) {
-        flat(head);
-        return head;
-    }
-    private Node flat(Node head){
-        if (head ==null) return null;
-        if (head.child==null){
-            if (head.next==null)return head;
-            return flat(head);
-        }else {
-            Node child =head.child;
-            Node next =head.next;
-            head.next =child;
-            child.prev =head;
-            head.child = null;
-            Node childtail = flat(child);
-            if (next!=null){
-                childtail.next =next;
-                next.prev =childtail;
-                return flat(next);
+        if (head == null) return null;
+        Node p = head;
+        Stack<Node> s = new Stack<>();
+        while (p != null) {
+            if (p.child != null) {
+                if (p.next!=null)s.push(p.next);
+                p.next = p.child;
+                if (p.next != null) p.next.prev = p;
+                p.child = null;
+            } else if (p.next == null && s.empty()) {
+                p.next = s.pop();
+                if (p.next != null) p.next.prev = p;
             }
-            return childtail;
+            p = p.next;
         }
+        return head;
     }
 }
