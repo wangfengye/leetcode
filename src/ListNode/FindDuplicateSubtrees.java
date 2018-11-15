@@ -13,6 +13,7 @@ import java.util.Map;
  * 两棵树重复是指它们具有相同的结构以及相同的结点值
  */
 public class FindDuplicateSubtrees {
+    //todo:没完全理解
     public List<TreeNode> findDuplicateSubtrees(TreeNode root) {
         List<TreeNode> res = new ArrayList<>();
         Map<Long, Integer> id = new HashMap<>();//key父节点到叶子节点的和(子树的序列化表达),value:节点高度
