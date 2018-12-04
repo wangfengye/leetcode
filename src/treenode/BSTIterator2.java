@@ -2,6 +2,7 @@ package treenode;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * @author maple on 2018/12/3 9:19.
@@ -45,6 +46,14 @@ public class BSTIterator2 {
         TreeNode r1l= new TreeNode(3);
         treeNode.right =r1;
         r1.left = r1l;
-
+        Random a = new Random(3);
+        System.out.println(a.nextInt());
+        System.out.println(a.nextInt());
+        System.out.println(a.nextInt());
+        System.out.println("-----------------------------------");
+        a= new Random(3);
+        System.out.println(a.nextInt());
+        System.out.println(a.nextInt());
+        System.out.println(a.nextInt());
     }
 }

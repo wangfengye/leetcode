@@ -30,6 +30,7 @@ public class BSTIterator {
     public int next() {
         TreeNode result = tree.pop();
         TreeNode current = result;
+        //存储取出的节点的右子树
         if(current.right != null){
             current = current.right;
             while(current != null){
