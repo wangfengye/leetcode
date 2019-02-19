@@ -26,9 +26,20 @@ public class EnumDemo {
     }
 
     public static void main(String[] args) {
-        //System.out.println(Color.RED.name);
-        show(Color.values());
+        //show(Color.values());
+        show(1, (Integer) null);
+        for (int i = 0; i < 26; i++) {
+            System.out.print(String.valueOf(i*27*26) + ',');
+        }
 
+    }
+
+    private static void show(Integer a, Integer b) {
+        System.out.println("Integer Show");
+    }
+
+    private static void show(Integer a, String b) {
+        System.out.println("String Show");
     }
 
     private static void show(Enum<?>[] colors) {
