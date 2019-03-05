@@ -28,7 +28,7 @@ public class WordBreak2 {
         }
         for (int i = 0; i < s.length(); i++) {     // 从一个字符开始判断是否可由单词组成,依次扩大长度
             if (dp[i]) {
-                for (int j = i + 1; j <= s.length() && i + maxWordLen >= j; ++j)
+                for (int j = i + 1; j <= s.length() && i + maxWordLen >= j; ++j)// i + maxWordLen >= j 只向后检测一个单词
                     if (wordDict.contains(s.substring(i, j))) dp[j] = true;
             }
         }
