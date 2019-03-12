@@ -1,5 +1,8 @@
 package interview;
 
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+
 /**
  * @author maple on 2019/3/11 14:50.
  * @version v1.0
@@ -43,5 +46,25 @@ public class TitleToNumber {
 
     public static void main(String[] args) {
         System.out.println((char) 64);
+        // 证明 trimToSize()后 elementData数组长度变为实际存储内容的数组长度;
+        ArrayList<Integer> s = new ArrayList<>();
+        s.add(1);
+        showElementDataLength(s);
+        s.trimToSize();
+        showElementDataLength(s);
+    }
+    private static void showElementDataLength(ArrayList<Integer> s){
+        Field field = null;
+        try {
+            field = s.getClass().getDeclaredField("elementData");
+            field.setAccessible(true);
+            Object[] el = (Object[]) field.get(s);
+            System.out.println(el.length);
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+
     }
 }
