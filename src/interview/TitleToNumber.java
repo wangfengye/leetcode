@@ -52,7 +52,31 @@ public class TitleToNumber {
         showElementDataLength(s);
         s.trimToSize();
         showElementDataLength(s);
+        // subString 在1.7之后进行了重构,不再复用value数组
+        String a = "ABCDEFGH";
+        String b = a.substring(0,3);
+
+        showEle(a);
+        System.out.println("a: " +a);
+        System.out.println("b: " +b);
+        showEle(b);
     }
+
+    private static void showEle(String s) {
+        Field field = null;
+        try {
+            field = s.getClass().getDeclaredField("value");
+            field.setAccessible(true);
+            char[] el = (char[]) field.get(s);
+            el[0] ='@';
+            System.out.println(el.length);
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+    }
+
     private static void showElementDataLength(ArrayList<Integer> s){
         Field field = null;
         try {
@@ -65,6 +89,5 @@ public class TitleToNumber {
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         }
-
     }
 }
