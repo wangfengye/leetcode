@@ -26,11 +26,15 @@ public class WXBizDataCrypt {
          char[] utf8 = new char[a.length()];
          a.getChars(0,a.length(),utf8,0);
          String b = utf8.toString();
-         return;
-
+        a((Boolean) null);
 
     }
-
+    public static void a(Integer i){
+        System.out.println("a");
+    }
+    public static void a(Boolean i){
+        System.out.println("b");
+    }
     public static String string2Unicode(String string) {
         StringBuffer unicode = new StringBuffer();
         for (int i = 0; i < string.length(); i++) {
