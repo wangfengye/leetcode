@@ -7,3 +7,4 @@
 | 希尔排序 | O(n^1.3)| O(n^2) | O(n) | O(1)|不稳定|
 | 归并排序 |O(nlogn) |O(nlogn)|O(nlogn)|O(n)|稳定|
 | 快速排序 |O(nlogn) |O(n^2)|O(nlogn)|O(3)|不稳定|
+| 堆排序   |O(nlogn) |O(nlogn)|O(n)|O(1)|不稳定|
