@@ -8,3 +8,8 @@
 | 归并排序 |O(nlogn) |O(nlogn)|O(nlogn)|O(n)|稳定|
 | 快速排序 |O(nlogn) |O(n^2)|O(nlogn)|O(3)|不稳定|
 | 堆排序   |O(nlogn) |O(nlogn)|O(n)|O(1)|不稳定|
+| 计数排序(k=数据源max-min)| O(n+k)| O(n+k)| O(n+k)|O(n+k)|稳定|
+| 桶排序 | O(n+k) |O(n^2)|O(n)|O(n+k)|稳定|
+| 基数排序 |O(n*k)|O(n*k)|O(n*k)|O(n+k)|稳定|
+
+`_**桶排序,基数排序的算法复杂度存疑**_`
