@@ -1,5 +1,7 @@
 package sort;
 
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -47,7 +49,12 @@ public class BucketSort {
 
     public static void main(String[] args){
         int[] nums = new int[]{50, 2, 12, 5, 38, 2, 3, 4, 44, 15, 19, 48, 27, 47};
-        sort(nums);
-        System.out.println(Arrays.toString(nums));
+        //sort(nums);
+        //System.out.println(Arrays.toString(nums));
+        for (int i = 0; i < 10; i++) {
+            System.out.println(Math.sin(Math.PI/10*i));
+        }
     }
+
+
 }
