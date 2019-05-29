@@ -47,5 +47,8 @@ public class RadixSort {
         int[] nums = new int[]{50, 2, 12, 5, 38, 2, 3, 4, 44, 15, 19, 48, 27, 47};
         sort(nums);
         System.out.println(Arrays.toString(nums));
+        System.out.println(Math.pow(2,30)+" *** "+ (1<<30));
+        int a=1,b;
     }
+
 }

@@ -1,5 +1,6 @@
 package sort;
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -38,6 +39,17 @@ public class CountingSort {
         int[] nums = {1, 2, 4, 7, 2, 5, 9, 1, 5, 2, 1, 4, 4, 3, 1, 5, 4, 4, 1, 6, 6, 4, 4};
         sort(nums);
         System.out.println(Arrays.toString(nums));
+        System.out.println(10/Math.cos(Math.PI/4));
     }
 
+    static class A{
+        int a =1;
+    }
+
+
+}
+class B{
+    public void  set(CountingSort.A a){
+        a.a= 6;
+    }
 }
