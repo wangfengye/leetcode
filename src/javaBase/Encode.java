@@ -13,7 +13,6 @@ import java.util.regex.Pattern;
 public class Encode {
     public static String str2HexCode(String s) {
         StringBuilder builder = new StringBuilder();
-
         try {
             byte[] bytes = s.getBytes("unicode");
             for (int i = 0; i < bytes.length - 1; i += 2) {
@@ -42,11 +41,11 @@ public class Encode {
                 builder.append("\\u");
                 String str = Integer.toBinaryString(bytes[i + 1] & 0xff);
                 for (int j = str.length(); j < 8; j++) {
-                    str='0'+str;
+                    str = '0' + str;
                 }
                 String str1 = Integer.toBinaryString(bytes[i] & 0xff);
                 for (int j = str.length(); j < 8; j++) {
-                    str='0'+str;
+                    str = '0' + str;
                 }
                 builder.append(str1);
                 builder.append(str);
@@ -80,7 +79,6 @@ public class Encode {
         char ch;
         while (matcher.find()) {
             String group = matcher.group(2);
-
             ch = (char) Integer.parseInt(group, 2);
             b.append(ch);
         }
@@ -88,11 +86,9 @@ public class Encode {
     }
 
     public static void main(String[] args) {
-        //   show("\u5fc3\u60A6\u4f60");
         System.out.println(str2BinaryCode("心悦你"));
         System.out.println(str2HexCode("心悦你"));
         System.out.println(hex2Str("\\ufeff\\u5fc3\\u60a6\\u4f60"));
         System.out.println(binary2Str("\\u1111111011111111\\u101111111000011\\u110000010100110\\u100111101100000"));
-
     }
 }
