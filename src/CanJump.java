@@ -9,11 +9,11 @@
  */
 public class CanJump {
     public static boolean canJump(int[] nums) {
-        int max = 0;
+        int max = 0;//贪心算法,max记录可达最大index;
         for (int i = 0; i < nums.length; i++) {
-            if (max<i)return false;
-            if (nums[i]+i>max)max = nums[i]+i;
-            if (max>=nums.length-1)return true;
+            if (max<i)return false;//前置点,无法到达i点,失败
+            if (nums[i]+i>max)max = nums[i]+i;//可达最远点
+            if (max>=nums.length-1)return true;//已达终点
         }
         return false;
     }
