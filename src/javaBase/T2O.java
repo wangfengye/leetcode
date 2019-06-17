@@ -1,6 +1,8 @@
 package javaBase;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 
 /**
  * @author maple on 2019/6/17 13:24.
@@ -14,12 +16,19 @@ public class T2O {
         T t = null;
         try {
             t = c.newInstance();
-            data = data.substring(data.indexOf('{') + 1, data.indexOf('}'));
+            data = data.substring(data.indexOf('{') + 1, data.lastIndexOf('}'));
             String[] fields = data.split(",");
             for (String field : fields) {
-                String[] tmp = field.split(":");
+                String[] tmp =new String[2];
+                int id = field.indexOf(':');
+                tmp[0]=field.substring(0,id);
+                tmp[1]=field.substring(id+1);
                 Field f = c.getDeclaredField(tmp[0]);
-                if (tmp[1].charAt(0) == '"') {
+                if (tmp[1].charAt(0)=='{'){
+                    Class filedType = f.getType();
+                    f.set(t,j2o(filedType,tmp[1]));
+                }
+                else if (tmp[1].charAt(0) == '"') {
                     f.set(t, tmp[1].substring(1, tmp[1].length() - 1));
                 } else if (tmp[1].equals("true")) {
                     f.setBoolean(t, true);
@@ -47,7 +56,11 @@ public class T2O {
                 builder.append(f.getName()).append(":");
                 if (f.getType() == String.class) {
                     builder.append('"').append(f.get(o)).append('"').append(',');
-                } else builder.append(f.get(o)).append(",");
+                }else if (isBaseClass(f.getType())){
+                    builder.append(f.get(o)).append(",");
+                }else {
+                    builder.append(o2j(f.get(o)));
+                }
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             }
@@ -57,14 +70,24 @@ public class T2O {
         return builder.toString();
     }
 
+    private static boolean isBaseClass(Class<?> type) {
+        if (type==int.class||type==long.class||type==double.class||type==float.class)return true;
+        return false;
+    }
+
     static class A {
         int count;
         String name;
+        B b;
 
+    }
+    static class B{
+        double per;
     }
 
     public static void main(String[] args) {
-        A a = j2o(A.class, "{count:1,name:\"maple\"}");
+        A a = j2o(A.class, "{count:1,name:\"maple\",b:{per:1.1}}");
         System.out.println(o2j(a));
+        System.out.println(int.class instanceof Object);
     }
 }
