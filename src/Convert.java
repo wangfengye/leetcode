@@ -32,7 +32,7 @@
  */
 public class Convert {
     public static String convert(String s, int numRows) {//暴力处理
-        if (numRows==1)return s;
+        if (numRows == 1) return s;
         char[][] chars = new char[numRows][s.length()];
         int i = 0;
         int j = 0;
@@ -58,19 +58,21 @@ public class Convert {
         }
         return builder.toString();
     }
-    public static String convert2(String s,int numRows){
-        if (numRows==1||s.length()<numRows)return s;
+
+    public static String convert2(String s, int numRows) {
+        if (numRows == 1 || s.length() < numRows) return s;
         StringBuilder builder = new StringBuilder();
         for (int i = 0; i < numRows; i++) {
-            for (int j = i; j <s.length() ; j+=(2*numRows-2)) {
+            for (int j = i; j < s.length(); j += (2 * numRows - 2)) {
                 builder.append(s.charAt(j));
-                if (i!=0&&i!=numRows-1){
-                    if (j+2*(numRows-i-1)<s.length())builder.append(s.charAt(j+2*(numRows-i-1)));
+                if (i != 0 && i != numRows - 1) {
+                    if (j + 2 * (numRows - i - 1) < s.length()) builder.append(s.charAt(j + 2 * (numRows - i - 1)));
                 }
             }
         }
         return builder.toString();
     }
+
     public static void main(String[] args) {
         System.out.println(convert("LEETCODEISHIRING", 3));
         System.out.println(convert2("LEETCODEISHIRING", 3));
