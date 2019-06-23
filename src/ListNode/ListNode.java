@@ -25,6 +25,22 @@ public class ListNode {
         }
         return  res.next;
     }
+    /**
+     * 有环链
+     * @param data 顺序链表值
+     * @return
+     */
+    public static ListNode createListloopNode(int... data) {
+        ListNode node = new ListNode(0);
+        ListNode res = node;
+        for (int i = 0; i < data.length; i++) {
+            ListNode node1 = new ListNode(data[i]);
+            node.next=node1;
+            node =node1;
+        }
+        node.next=res.next;
+        return  res.next;
+    }
     public static boolean isSame(ListNode a,ListNode b){
         if (a==null&&b==null)return true;
         if (a!=null&&a.equals(b))return true;
