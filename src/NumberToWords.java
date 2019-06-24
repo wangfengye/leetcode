@@ -57,10 +57,10 @@ public class NumberToWords {
                 tmp = tmp - (h1 * 10);
             }
             if (tmp > 0) res.append(tmp19[tmp - 1]);
-            if (i != 0&& res.length()>0) {//这三位数>0才需要加后缀
+            if (i != 0 && res.length() > 0) {//这三位数>0才需要加后缀
                 res.append(types[i - 1]);
             }
-            ress.insert(0,res);
+            ress.insert(0, res);
         }
         ress.setLength(ress.length() - 1);
         return ress.toString();

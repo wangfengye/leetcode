@@ -60,4 +60,16 @@ public class ListNode {
     public int hashCode() {
         return Objects.hash(val, next);
     }
+
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        ListNode node =new ListNode(0);node.next=this;
+        while (node.next!=null){
+            node = node.next;
+            builder.append(node.val).append("->");
+        }
+        builder.setLength(builder.length()-2);
+        return builder.toString();
+    }
 }
