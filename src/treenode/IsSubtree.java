@@ -1,5 +1,9 @@
 package treenode;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
+
 /**
  * @author maple on 2019/7/29 17:11.
  * @version v1.0
@@ -52,5 +56,14 @@ public class IsSubtree {
         if (s == null || t == null) return false;
         if (s.val != t.val) return false;
         return isSame(s.left, t.left) && isSame(s.right, t.right);
+
+    }
+    public static void main(String[] s){
+        try {
+            System.out.println(URLEncoder.encode("我","UTF-8"));
+            System.out.println(URLDecoder.decode("%E6%88%91","UTF-8"));
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
     }
 }
