@@ -59,11 +59,30 @@ public class IsSubtree {
 
     }
     public static void main(String[] s){
-        try {
+      /*  try {
             System.out.println(URLEncoder.encode("我","UTF-8"));
             System.out.println(URLDecoder.decode("%E6%88%91","UTF-8"));
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
+        }*/
+      String[] src= new String[]{"0601","0602","0603","0604","0605","0606","0607","0608","0609","0610","0611","0612","0613","0614","0615"
+      ,"0616","0617","0618","0619","0620","0621","0701","0702","0703","0704","0705","0706","0708"};
+      String[] days = new String[]{"0724","0725","0726","0727","0728","0729","0730","0731","0801","0802","0803","0804",
+      "0805","0806","0807"};
+
+        for (String suffix : src) {
+          //  System.out.println("CALL initTask('hz19"+suffix+"', 'bg_data_hz.t_device','bg_data_hz.tlog_apl2019"+suffix+"');");
+          //  System.out.println("INSERT INTO t_ap_gd_hz (SELECT * FROM t_ap_location_hz19"+suffix+" WHERE locationType like '高德_%');");
+          //  System.out.println("INSERT INTO t_ap_hz (device_id,ap_mac,ap_name,longitude,latitude,address,accuracy,locationType,from_phone) (SELECT device_id,ap_mac,ap_name,longitude,latitude,address,accuracy,locationType,from_phone FROM t_ap_location_hz19"+suffix+");");
+        }
+        for (String suf : days) {
+           // 全天在线
+            // System.out.println("insert into log_alldays(ap_mac,usr_mac) (SELECT ap_mac,usr_mac FROM gath_point2019"+suf+" GROUP BY ap_mac,usr_mac HAVING(count(1)>20)) on DUPLICATE key update days=1+days;");
+
+            // 9-17在线
+            System.out.println("insert into log_0917(ap_mac,usr_mac) (SELECT ap_mac,usr_mac FROM gath_point2019"+suf+" where date_hour>7 and date_hour<18 GROUP BY ap_mac,usr_mac HAVING(count(1)>5)) on DUPLICATE key update days=1+days;");
+            // 24-5在线
+            //System.out.println("insert into log_2405(ap_mac,usr_mac) (SELECT ap_mac,usr_mac FROM gath_point2019"+suf+" where date_hour<7 GROUP BY ap_mac,usr_mac HAVING(count(1)>4)) on DUPLICATE key update days=1+days;");
         }
     }
 }
