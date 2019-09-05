@@ -92,5 +92,7 @@ public class Encode {
         // 0A:换行;202E RLO符号
         System.out.println(hex2Str("\\u202E\\ufeff\\u5fc3\\u60a6\\u4f60"));
         System.out.println(binary2Str("\\u1111111011111111\\u101111111000011\\u110000010100110\\u100111101100000"));
+        System.out.println(hex2Str("\\u00020001"));
+
     }
 }

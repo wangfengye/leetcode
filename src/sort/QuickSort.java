@@ -1,6 +1,9 @@
 package sort;
 
+
+
 import java.util.Arrays;
+import java.util.Properties;
 
 /**
  * @author maple on 2019/4/12 16:21.
@@ -41,5 +44,12 @@ public class QuickSort {
         int[] nums = new int[]{8, 6, 2, 54, 8, 2};
         sort(nums, 0, nums.length - 1);
         System.out.println(Arrays.toString(nums));
+        byte a=-1;byte b=11;
+        System.out.println(Integer.toBinaryString(-1));
+        System.out.println(Integer.toBinaryString(1));
+        int c =a&b;
+        System.out.println(c);
+
+
     }
 }
