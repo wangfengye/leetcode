@@ -80,9 +80,32 @@ public class IsSubtree {
             // System.out.println("insert into log_alldays(ap_mac,usr_mac) (SELECT ap_mac,usr_mac FROM gath_point2019"+suf+" GROUP BY ap_mac,usr_mac HAVING(count(1)>20)) on DUPLICATE key update days=1+days;");
 
             // 9-17在线
-            System.out.println("insert into log_0917(ap_mac,usr_mac) (SELECT ap_mac,usr_mac FROM gath_point2019"+suf+" where date_hour>7 and date_hour<18 GROUP BY ap_mac,usr_mac HAVING(count(1)>5)) on DUPLICATE key update days=1+days;");
+          //  System.out.println("insert into log_0917(ap_mac,usr_mac) (SELECT ap_mac,usr_mac FROM gath_point2019"+suf+" where date_hour>7 and date_hour<18 GROUP BY ap_mac,usr_mac HAVING(count(1)>5)) on DUPLICATE key update days=1+days;");
             // 24-5在线
             //System.out.println("insert into log_2405(ap_mac,usr_mac) (SELECT ap_mac,usr_mac FROM gath_point2019"+suf+" where date_hour<7 GROUP BY ap_mac,usr_mac HAVING(count(1)>4)) on DUPLICATE key update days=1+days;");
         }
+        addCall0909();
+        Object[] o= new Object[3];
+        String res="";
+        for(Object a:o){
+            res+=a.toString();
+        }
     }
+
+    /**
+     *  09/09  call添加
+     */
+    private static void addCall0909(){
+        String[]suffixs =new String[]{"bj","ca","gs","jd","la","sc","tl","xc","xiaoshan","xiasha","xihu","yh"};
+        for (String suffix : suffixs) {
+          //System.out.println("CALL initTask('gath_hzsj_"+suffix+"', 'gath_hzsj.t_device_"+suffix+"', 'gath_hzsj.tlog_apl201909_"+suffix+"');");
+
+          System.out.println("UPDATE t_ap_location_gath_hzsj_"+suffix+" SET apmac =  CONV(REPLACE(ap_mac,':',''),16,10) WHERE apmac is NULL; ");
+
+         System.out.println("INSERT ignore INTO t_ap_location_20190917_baidu (device_id,apmac,ap_name,longitude,latitude,address,accuracy,locationType) SELECT device_id,apmac,ap_name,longitude,latitude,address,accuracy,locationType FROM t_ap_location_gath_hzsj_"+suffix+" WHERE locationType LIKE '百度%' AND (address not like '%浙江省杭州市余杭区文一西路%' and address is not null  );");
+        System.out.println( "INSERT ignore INTO t_ap_location_20190917_gaode (device_id,apmac,ap_name,longitude,latitude,address,accuracy,locationType) SELECT device_id,apmac,ap_name,longitude,latitude,address,accuracy,locationType FROM t_ap_location_gath_hzsj_"+suffix+" WHERE locationType LIKE '高德%' AND (address not like '%浙江省杭州市余杭区文一西路%' and address is not null  );");
+        }
+    }
+
+
 }
