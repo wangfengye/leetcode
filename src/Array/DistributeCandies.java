@@ -36,9 +36,9 @@ public class DistributeCandies {
         int floor=0;
         for(;;){
             int canTmp= (num_people+1)*num_people/2+floor*num_people*num_people;
-            if (candies>=canTmp){
-                candies-=canTmp;
-                floor++;
+                if (candies>=canTmp){
+                    candies-=canTmp;
+                    floor++;
             }else {
                 break;
             }
