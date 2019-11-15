@@ -4,7 +4,7 @@
 public class Search {
     /**
      * 二分法
-     *345612大家都在发
+     *
      */
     public int search(int[] nums, int target) {
         int left = 0;
