@@ -1,5 +1,10 @@
 package treenode;
 
+import ListNode.ListNode;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author maple on 2019/7/11 15:38.
  * @version v1.0
@@ -57,6 +62,50 @@ public class PathSum {
         }
         if (root.left != null) dfs(root.left, sum - root.val);
         if (root.right != null) dfs(root.right, sum - root.val);
+    }
 
+    /**
+     * 113. 路径总和 II
+     * 给定一个二叉树和一个目标和，找到所有从根节点到叶子节点路径总和等于给定目标和的路径。
+     * <p>
+     * 说明: 叶子节点是指没有子节点的节点。
+     * <p>
+     * 示例:
+     * 给定如下二叉树，以及目标和 sum = 22，
+     * <p>
+     * 5
+     * / \
+     * 4   8
+     * /   / \
+     * 11  13  4
+     * /  \    / \
+     * 7    2  5   1
+     * 返回:
+     * <p>
+     * [
+     * [5,4,11,2],
+     * [5,8,4,5]
+     * ]
+     */
+    public List<List<Integer>> pathSumII(TreeNode root, int sum) {
+        List<List<Integer>> res = new ArrayList<>();
+        ArrayList<Integer> tmp = new ArrayList<>();
+        dfsII(root, tmp, sum, 0, res);
+        return res;
+    }
+
+    private void dfsII(TreeNode root, ArrayList<Integer> tmp, int sum, int c, List<List<Integer>> res) {
+        if (root != null) {
+            tmp.add(root.val);
+            if (root.left == null && root.right == null) {
+                if (c + root.val == sum) {
+                    res.add(new ArrayList<>(tmp));
+                }
+            } else {
+                if (root.left != null) dfsII(root.left, tmp, sum, c + root.val, res);
+                if (root.right != null) dfsII(root.right, tmp, sum, c + root.val, res);
+            }
+            tmp.remove(tmp.size() - 1);
+        }
     }
 }
