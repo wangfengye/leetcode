@@ -364,8 +364,6 @@ public class Prim {
             }
         }
         Prim pG;
-        // 自定义"图"(输入矩阵队列)
-        //pG = new MatrixUDG();
         // 采用已有的"图"
         pG = new Prim(vexs, matrix);
 
