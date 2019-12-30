@@ -321,8 +321,6 @@ public class Prim {
                  * ()(C,A)()
                  * C,A对应上面的H
                  */
-
-
                 System.out.print("(");
                 for (int i = 0; i < nodeSize; i++) {
                     Node node = nodes.pop();
