@@ -48,11 +48,12 @@ public class TreeNode {
 
     private void show(TreeNode node, int i) {
         if(node==null)return;
+        show(node.left,i+1);
         for (int j = 0; j < i; j++) {
             System.out.print("\t");
         }
         System.out.println(node.val);
-        show(node.left,i+1);
+
         show(node.right,i+1);
     }
 }

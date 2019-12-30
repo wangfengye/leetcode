@@ -42,8 +42,8 @@ public class DiameterOfBinaryTree {
         }
     }
     public static void main(String[] args){
-        TreeNode node = TreeNode.create(new int[]{1,2,3,4,5});
+        TreeNode node = TreeNode.create(new int[]{1,2,3,4,5,6,7});
         node.show();
-        System.out.println(new DiameterOfBinaryTree().diameterOfBinaryTree(node));
+        System.out.println("树的直径:"+new DiameterOfBinaryTree().diameterOfBinaryTree(node));
     }
 }
