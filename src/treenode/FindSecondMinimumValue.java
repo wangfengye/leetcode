@@ -34,30 +34,44 @@ import wbCompany.Tree;
  */
 public class FindSecondMinimumValue {
     public int findSecondMinimumValue(TreeNode root) {
-        return find(root);
+        if (root.left == null) {
+            return -1;
+        }
+        int l = root.left.val;
+        if (root.left.val == root.val) {
+            l = find(root.left);
+        }
+        int r = root.right.val;
+        if (root.right.val == root.val) {
+            r = find(root.right);
+        }
+        if (l == -1) return r;
+        if (r == -1) return l;
+        return Math.min(l, r);
     }
 
     public int find(TreeNode node) {
         if (node.left == null) {
             return -1;
         }
-        int l=node.left.val;
-        if(node.left.val==node.val){
-            l=find(node.left);
+        int l = node.left.val;
+        if (node.left.val == node.val) {
+            l = find(node.left);
         }
-        int r=node.right.val;
-        if(node.right.val==node.val){
-            r=find(node.right);
+        int r = node.right.val;
+        if (node.right.val == node.val) {
+            r = find(node.right);
         }
-        if(l==-1)return r;
-        if(r==-1)return l;
-        return Math.min(l,r);
+        if (l == -1) return r;
+        if (r == -1) return l;
+        return Math.min(l, r);
     }
-    public static void main(String[] args){
-        System.out.println(new FindSecondMinimumValue().findSecondMinimumValue(TreeNode.create(new int[]{2,2,2})));
-        System.out.println(new FindSecondMinimumValue().findSecondMinimumValue(TreeNode.create(new int[]{2,2,5,2,2,5,7})));
-        TreeNode root=TreeNode.create(new int[]{1,1,3,1,1,3,4,3,1,1,1,3,8,4,8,3,3,1,6,2,1});
-       // root.show();
+
+    public static void main(String[] args) {
+        System.out.println(new FindSecondMinimumValue().findSecondMinimumValue(TreeNode.create(new int[]{2, 2, 2})));
+        System.out.println(new FindSecondMinimumValue().findSecondMinimumValue(TreeNode.create(new int[]{2, 2, 5, 2, 2, 5, 7})));
+        TreeNode root = TreeNode.create(new int[]{1, 1, 3, 1, 1, 3, 4, 3, 1, 1, 1, 3, 8, 4, 8, 3, 3, 1, 6, 2, 1});
+        // root.show();
         System.out.println(new FindSecondMinimumValue().findSecondMinimumValue(root));
     }
 }
