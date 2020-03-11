@@ -48,6 +48,11 @@ public class ToHex {
     }
 
     public static void main(String[] args) {
+        byte a= (byte) 0xa5;
+        for (int i = 0; i < 8; i++) {
+            System.out.print(((a>>(7-i))&1));
+        }
+        System.out.println("");
         System.out.println(toHex(26));
         System.out.println(toHex(-1));
         System.out.println(((1) ^ 0xffffffff) + 1);
