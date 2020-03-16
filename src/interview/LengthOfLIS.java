@@ -46,7 +46,7 @@ public class LengthOfLIS {
             }
             max = Math.max(max, dp[i]);
         }
-        return dp[dp.length - 1];
+        return max;
     }
 
     // 贪心 + 二分, 利用贪心的思想，对于一个上升子序列，显然当前最后一个元素越小，越有利于添加新的元素，这样LIS长度自然更长
