@@ -10,7 +10,7 @@ import java.util.Arrays;
  */
 public class MergeSort {
 
-    private static void sort(int[] nums, int s, int e) {
+    public static void sort(int[] nums, int s, int e) {
         int mid = (e + s) / 2;
         if (s < e) {
             sort(nums, s, mid);
