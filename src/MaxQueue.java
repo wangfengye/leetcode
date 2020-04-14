@@ -65,5 +65,6 @@ public class MaxQueue {
         System.out.println(queue.max_value());
         queue.push_back(9);
         System.out.println(queue.max_value());
+        System.out.println(String.format("%4d",1));
     }
 }
