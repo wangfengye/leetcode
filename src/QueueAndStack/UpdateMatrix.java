@@ -92,6 +92,13 @@ public class UpdateMatrix {
         //new UpdateMatrix().updateMatrix(new int[][]{{0,0,0},{0,1,0},{1,1,1}});
     }
 
+    /**
+     * 层层遍历,
+     * 1. 将四周为 1的+1;
+     * 2. 将四周为2的再+1;
+     * @param matrix
+     * @return
+     */
     public static  int[][] updateMatrix1(int[][] matrix) {
         if (matrix == null || matrix.length == 0 || matrix[0].length == 0) return null;
         int row = matrix.length;
