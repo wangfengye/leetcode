@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 /**
  * 合并区间
@@ -32,17 +29,29 @@ public class Merge {
         res.add(counter);
         return res;
     }
-
-    private boolean merge2(Interval a, Interval b) {
-        if (a.start <= b.start && a.end >= b.start
-                || b.start <= a.start && b.end >= a.start) {
-            a.start = Math.min(a.start, b.start);
-            a.end = Math.max(b.start, b.end);
-            return true;
+    public int[][] merge(int[][] intervals) {
+        if(intervals.length<2)return intervals;
+        //按起点排序(后面的区间,必然在前面区间的右侧),所有的区间只要与前面的尝试合并就行.
+        Arrays.sort(intervals, new Comparator<int[]>() {
+            @Override
+            public int compare(int[] o1, int[] o2) {
+                return o1[0]-o2[0];
+            }
+        });
+        List<int[]> res = new ArrayList<>();
+        int[] lastTmp=intervals[0];//先取出一个,与后面的进行合并
+        for (int i = 1; i < intervals.length; i++) {
+            if (intervals[i][0]<=lastTmp[1]){
+                lastTmp[1] =Math.max(intervals[i][1],lastTmp[1]);
+            }else {
+                res.add(lastTmp);
+                lastTmp = intervals[i];
+            }
         }
-        return false;
+        res.add(lastTmp);
+        int[][] resArr=new int[res.size()][];
+        return res.toArray(resArr);
     }
-
 }
 
 class Interval {
