@@ -18,6 +18,11 @@ public class CanJump {
         return false;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
     public static void main(String[] args){
         System.out.println(canJump(new int[]{2,3,1,1,4}));
         System.out.println(canJump(new int[]{3,2,1,0,4}));
