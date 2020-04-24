@@ -1,3 +1,5 @@
+import java.io.FileOutputStream;
+
 /**
  * 面试题 08.11. 硬币
  * 硬币。给定数量不限的硬币，币值为25分、10分、5分和1分，编写代码计算n分有几种表示法。(结果可能会很大，你需要将结果模上1000000007)
@@ -20,7 +22,7 @@
  * 10=1+1+1+1+1+1+1+1+1+1
  * 本质背包问题
  */
-public class WaysToChange {
+public class WaysToChange implements AutoCloseable{
     private static final int MOD= 1000000007;
     private static final int[] COINS= new int[]{1,5,10,25};
     public static int waysToChange(int n) {
@@ -61,7 +63,26 @@ public class WaysToChange {
         return ans;
     }
     public static void main(String[] args){
-        System.out.println(waysToChange2(5));
+       /* System.out.println(waysToChange2(5));
         System.out.println(waysToChange2(10));
+
+        try(WaysToChange b=new WaysToChange();WaysToChange c=new WaysToChange()){
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }*/
+        long a=1;
+        Long b=1L;
+        Long c=1L;
+        System.out.println(a==b);
+        System.out.println(a==c);
+        System.out.println(b==c);
+    }
+
+    @Override
+    public void close() throws Exception {
+        System.out.println("closed");
+
+
     }
 }
