@@ -1,5 +1,8 @@
 package Array;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 /**
  * 面试题51. 数组中的逆序对
  * 在数组中的两个数字，如果前面一个数字大于后面的数字，则这两个数字组成一个逆序对。输入一个数组，求出这个数组中的逆序对的总数。
@@ -18,12 +21,38 @@ package Array;
  */
 public class ReversePairs {
     public static void main(String[] args) {
-        System.out.println(new ReversePairs().reversePairs(new int[]{7, 5, 6, 4}));
+        // System.out.println(new ReversePairs().reversePairs(new int[]{7, 5, 6, 4}));
+        ExecutorService a = Executors.newFixedThreadPool(1);
+        Object o = new Object();
+        a.execute(new Runnable() {
+            @Override
+            public void run() {
+                synchronized (o) {
+                    System.out.println(System.currentTimeMillis() + ": start");
+                    try {
+                        o.wait(2000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    System.out.println(System.currentTimeMillis() + ": end");
+                }
+            }
+        });
+        try {
+            Thread.sleep(200);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        synchronized (o) {
+            o.notifyAll();
+        }
+
     }
 
     public int reversePairs(int[] nums) {
         return merge(nums, 0, nums.length - 1);
     }
+
     //归并排序
     private int merge(int[] arr, int start, int end) {
         if (start == end) return 0;
