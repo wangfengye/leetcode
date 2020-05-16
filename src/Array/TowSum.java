@@ -1,5 +1,6 @@
 package Array;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -48,5 +49,8 @@ public class TowSum {
         }
         return null;
 
+    }
+    public static void main(String[] args){
+        System.out.println(Arrays.toString(new TowSum().twoSum1(new int[]{2,3,7,8,11,15},9)));
     }
 }
