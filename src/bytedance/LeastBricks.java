@@ -49,4 +49,12 @@ public class LeastBricks {
         }
         return wall.size()-max;
     }
+    public static void main(String[] args){
+        HashMap<String ,String> map=new HashMap<>();
+        System.out.println(map.get(null));
+        map.put(null,"sa");
+        System.out.println(map.get(null));
+        map.put(null,"s2a");
+        System.out.println(map.get(null));
+    }
 }
