@@ -23,6 +23,7 @@ package bytedance;
  * Tags: Arrays, Binary Search
  */
 public class SearchInRotatedSortedArray {
+
     //旋转递增序列
     public static int search(int[] array, int target) {
         int l = 0;

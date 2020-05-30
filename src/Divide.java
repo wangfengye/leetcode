@@ -21,6 +21,12 @@
  * 假设我们的环境只能存储 32 位有符号整数，其数值范围是 [−231,  231 − 1]。本题中，如果除法结果溢出，则返回 231 − 1
  */
 public class Divide {
+    /**
+     * 基本逻辑:用减的次数来表示除的结果.
+     * @param dividend
+     * @param divisor
+     * @return
+     */
     public static int divide(int dividend, int divisor) {
         if (dividend==Integer.MIN_VALUE && divisor==-1)
             return Integer.MAX_VALUE;
