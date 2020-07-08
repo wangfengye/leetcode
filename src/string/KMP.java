@@ -8,7 +8,7 @@ import java.util.Arrays;
  */
 public class KMP {
     public static int kmp(String s, String p) {
-        //构造kmp next .记录p中的重复前缀
+        //当前下标对应的字符之前的字符串中，有多大长度的相同前缀后缀
         int[] next = new int[p.length()];
         next[0] = 0;
         //ABABABD
