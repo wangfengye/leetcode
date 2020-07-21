@@ -1,14 +1,10 @@
 package oom;
 
-import com.sun.xml.internal.fastinfoset.algorithm.BuiltInEncodingAlgorithm;
-
 import java.io.File;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @author maple on 2020/1/13 11:48.
@@ -20,12 +16,6 @@ public class StringOomMock {
 
     public static void main(String[] args) {
         testFinalStringOOM();
-        BuiltInEncodingAlgorithm.WordListener listener = new BuiltInEncodingAlgorithm.WordListener() {
-            @Override
-            public void word(int i, int i1) {
-
-            }
-        };
         for (; ; ) {
             int i = 1;
 

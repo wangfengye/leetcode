@@ -1,6 +1,5 @@
 package kt
 
-import jdk.nashorn.internal.objects.Global.print
 
 class KtTest {
     constructor(a:Int){

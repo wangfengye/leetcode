@@ -1,5 +1,3 @@
-import org.bouncycastle.util.Arrays;
-
 /**
  * @author maple on 2019/6/6 9:15.
  * @version v1.0

@@ -1,5 +1,3 @@
-import org.bouncycastle.util.Integers;
-
 /**
  * @author maple on 2019/6/5 11:09.
  * @version v1.0

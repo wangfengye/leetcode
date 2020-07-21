@@ -1,16 +1,13 @@
 package classLoader;
 
-import sun.reflect.Reflection;
+
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
 import java.lang.reflect.Method;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Vector;
-import java.util.function.BinaryOperator;
-import java.util.stream.Collectors;
 
 /**
  * 模拟jsp热更新
@@ -104,6 +101,7 @@ public class Main {
         //防止重复加载的逻辑自己想的,源码可能有更好的方式.
         HashMap<String, Class<?>> set = new HashMap<>();
 
+        @SuppressWarnings("all")
         @Override
         protected Class<?> findClass(String name) throws ClassNotFoundException {
             System.out.println("sas, "+name);

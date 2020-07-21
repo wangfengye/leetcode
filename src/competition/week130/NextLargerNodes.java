@@ -1,11 +1,8 @@
 package competition.week130;
 
-import ListNode.ListNode;
-import javafx.util.Pair;
-import nTreenode.Node;
 
-import java.util.ArrayList;
-import java.util.List;
+import bytedance.Pair;
+
 import java.util.Stack;
 
 /**

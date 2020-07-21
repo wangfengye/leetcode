@@ -1,12 +1,8 @@
 package javaBase;
 
-import sun.rmi.runtime.Log;
-
-import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @author maple on 2019/8/26 17:06.

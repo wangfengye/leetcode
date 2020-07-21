@@ -1,7 +1,5 @@
 package javaBase;
 
-import com.sun.corba.se.impl.orbutil.concurrent.Sync;
-
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.TimeUnit;

@@ -1,7 +1,5 @@
 package ListNode;
 
-import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
-
 /**
  * @author maple on 2019/6/24 9:21.
  * @version v1.0

@@ -1,7 +1,5 @@
 package Array;
 
-import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;

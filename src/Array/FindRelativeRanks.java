@@ -1,9 +1,5 @@
 package Array;
 
-import javafx.util.Pair;
-
-import java.lang.reflect.Array;
-import java.sql.SQLSyntaxErrorException;
 import java.util.*;
 
 /**
